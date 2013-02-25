@@ -23,15 +23,15 @@ from zope.location import Location
 from zope.location.interfaces import IContained
 from zope.security.interfaces import IPrincipal
 from zope.site.next import queryNextUtility
-   
+
 from zope.principalannotation.interfaces import IPrincipalAnnotationUtility
-   
+
 # TODO: register utility as adapter for IAnnotations on utility activation.
-   
+
 @interface.implementer(IPrincipalAnnotationUtility, IContained)
 class PrincipalAnnotationUtility(Persistent):
     """Stores `IAnnotations` for `IPrinicipals`.
-    
+
     The utility ID is 'PrincipalAnnotation'.
     """
 
@@ -43,14 +43,14 @@ class PrincipalAnnotationUtility(Persistent):
 
     def getAnnotations(self, principal):
         """Return object implementing IAnnotations for the given principal.
-        
+
         If there is no `IAnnotations` it will be created and then returned.
         """
         return self.getAnnotationsById(principal.id)
-   
+
     def getAnnotationsById(self, principalId):
         """Return object implementing `IAnnotations` for the given principal.
-   
+
         If there is no `IAnnotations` it will be created and then returned.
         """
         annotations = self.annotations.get(principalId)
@@ -72,12 +72,12 @@ class Annotations(Persistent, Location):
     def __init__(self, principalId, store=None):
         self.principalId = principalId
         self.data = PersistentDict() # We don't really expect that many
-        
+
         # _v_store is used to remember a mapping object that we should
         # be saved in if we ever change
         self._v_store = store
 
-    def __nonzero__(self):
+    def __bool__(self):
         nz = bool(self.data)
         if not nz:
             # maybe higher-level utility's annotations will be non-zero
@@ -86,6 +86,8 @@ class Annotations(Persistent, Location):
                 annotations = next.getAnnotationsById(self.principalId)
                 return bool(next)
         return nz
+
+    __nonzero__ = __bool__
 
     def __getitem__(self, key):
         try:
@@ -110,13 +112,13 @@ class Annotations(Persistent, Location):
             # be saved in if we ever change
             self._v_store[self.principalId] = self
             del self._v_store
-        
+
         self.data[key] = value
 
     def __delitem__(self, key):
         del self.data[key]
 
-   
+
 @component.adapter(IPrincipal)
 @interface.implementer(IAnnotations)
 def annotations(principal, context=None):
