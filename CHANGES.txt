@@ -2,10 +2,10 @@
 CHANGES
 =======
 
-4.0.0a2 (unreleased)
+4.0.0a2 (2013-02-25)
 --------------------
 
-- Nothing changed yet.
+- Corrected Trove classifiers.
 
 
 4.0.0a1 (2013-02-24)

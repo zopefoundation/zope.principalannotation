@@ -20,7 +20,7 @@ def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
 setup(name='zope.principalannotation',
-      version='4.0.0a2.dev0',
+      version='4.0.0a2',
       author='Zope Foundation and Contributors',
       author_email='zope-dev@zope.org',
       description='Annotations for Zope Principals',
@@ -39,6 +39,9 @@ setup(name='zope.principalannotation',
           'Programming Language :: Python :: 2',
           'Programming Language :: Python :: 2.6',
           'Programming Language :: Python :: 2.7',
+          'Programming Language :: Python :: 3',
+          'Programming Language :: Python :: 3.3',
+          'Programming Language :: Python :: Implementation :: CPython',
           'Natural Language :: English',
           'Operating System :: OS Independent',
           'Topic :: Internet :: WWW/HTTP',
