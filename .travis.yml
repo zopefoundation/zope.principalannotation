@@ -1,13 +1,15 @@
 # manual (marker for update script)
 language: python
 sudo: false
-python:
-    - 2.6
-    - 2.7
-    - 3.3
+env:
+    - TOXENV=py26
+    - TOXENV=py27
+    - TOXENV=py33
+    - TOXENV=py34
+    - TOXENV=pypy
 install:
-    - pip install .
+    - travis_retry pip install tox
 script:
-    - python setup.py test -q
+    - tox
 notifications:
     email: false
