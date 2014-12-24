@@ -1,34 +1,38 @@
 Changes
 =======
 
-4.0.0a3 (unreleased)
---------------------
+4.0.0 (unreleased)
+------------------
 
-- Nothing changed yet.
+- Add support for PyPy.
+
+- Add support for Python 3.4.
+
+- Add support for testing on Travis.
 
 
 4.0.0a2 (2013-02-25)
 --------------------
 
-- Corrected Trove classifiers.
+- Correct Trove classifiers.
 
 
 4.0.0a1 (2013-02-24)
 --------------------
 
-- Added support for Python 3.3.
+- Add support for Python 3.3.
 
-- Replaced deprecated ``zope.interface.implements`` usage with equivalent
+- Replace deprecated ``zope.interface.implements`` usage with equivalent
   ``zope.interface.implementer`` decorator.
 
-- Dropped support for Python 2.4 and 2.5.
+- Drop support for Python 2.4 and 2.5.
 
 3.6.1 (2010-05-05)
 ------------------
 
-- Fixed a test failure in nested local site manager setup.
+- Fix a test failure in nested local site manager setup.
 
-- Removed dependency on zope.container.
+- Remove dependency on zope.container.
 
 3.6.0 (2009-03-09)
 ------------------
