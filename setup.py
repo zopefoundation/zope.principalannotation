@@ -17,7 +17,8 @@ import os
 from setuptools import setup, find_packages
 
 def read(*rnames):
-    return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
+    with open(os.path.join(os.path.dirname(__file__), *rnames)) as f:
+        return f.read()
 
 setup(name='zope.principalannotation',
       version='4.0.0a3.dev0',
@@ -25,9 +26,11 @@ setup(name='zope.principalannotation',
       author_email='zope-dev@zope.org',
       description='Annotations for Zope Principals',
       long_description=(
+          read('README.rst')
+          + '\n\n' +
           read('src', 'zope', 'principalannotation', 'README.txt')
           + '\n\n' +
-          read('CHANGES.txt')
+          read('CHANGES.rst')
           ),
       keywords = "zope security principal annotation",
       classifiers = [
