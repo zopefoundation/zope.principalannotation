@@ -4,7 +4,8 @@ Changes
 4.0.1 (unreleased)
 ------------------
 
-- TBD
+- Accomodate new methods added to ``zope.annotation.interfaces.IAnnotations``
+  in upcoming zope.annotation 4.4.0 release.
 
 
 4.0.0 (2014-12-24)

@@ -118,6 +118,15 @@ class Annotations(Persistent, Location):
     def __delitem__(self, key):
         del self.data[key]
 
+    def __iter__(self):
+        return iter(self.data)
+
+    def __contains__(self, key):
+        return key in self.data
+
+    def items(self):
+        return self.data.items()
+
 
 @component.adapter(IPrincipal)
 @interface.implementer(IAnnotations)
