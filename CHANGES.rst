@@ -1,7 +1,7 @@
 Changes
 =======
 
-4.0.1 (unreleased)
+4.1.0 (unreleased)
 ------------------
 
 - Accomodate new methods added to ``zope.annotation.interfaces.IAnnotations``
