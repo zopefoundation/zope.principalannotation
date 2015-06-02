@@ -21,7 +21,7 @@ def read(*rnames):
         return f.read()
 
 setup(name='zope.principalannotation',
-      version='4.1.1',
+      version='4.1.2.dev0',
       author='Zope Foundation and Contributors',
       author_email='zope-dev@zope.org',
       description='Annotations for Zope Principals',
