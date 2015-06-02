@@ -13,9 +13,9 @@
 ##############################################################################
 """Principal Annotation Tests
 """
+import doctest
 import unittest
 from zope.component import provideAdapter
-from zope.testing import doctest
 from zope.interface import Interface
 from zope.security.interfaces import IPrincipal
 from zope.site.testing import siteSetUp, siteTearDown

@@ -4,7 +4,8 @@ Changes
 4.1.1 (unreleased)
 ------------------
 
-- TBD
+- Replace use of long-deprecated ``zope.testing.doctest`` with stdlib's
+  ``doctest``.
 
 
 4.1.0 (2015-01-09)
