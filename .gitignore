@@ -5,7 +5,8 @@ benchmark/*.egg-info
 
 .installed.cfg
 .tox
-bin
-develop-eggs
-docs
-parts
+bin/
+develop-eggs/
+eggs/
+docs/
+parts/
