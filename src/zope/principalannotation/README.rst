@@ -151,9 +151,12 @@ The subsite utility should get the annotation successfully::
   >>> annots2 = util2.getAnnotations(nadako)
   >>> bool(annots2)
   True
-
   >>> annots2['root.number']
   42
+  >>> del annots['root.number']
+  >>> bool(annots2)
+  False
+  >>> annots['root.number'] = 42
 
 If we have the key both in higher-level annotations and lower-level ones,
 the lower-level will have priority, but higher-level won't be deleted or
