@@ -1,30 +1,31 @@
-Changes
-=======
+=========
+ Changes
+=========
 
 4.2.0 (unreleased)
-------------------
+==================
 
-- Add support for Python 3.5.
+- Add support for Python 3.5 and 3.6.
 
-- Drop support for Python 2.6.
+- Drop support for Python 2.6 and 3.3.
 
 
 4.1.1 (2015-06-02)
-------------------
+==================
 
 - Replace use of long-deprecated ``zope.testing.doctest`` with stdlib's
   ``doctest``.
 
 
 4.1.0 (2015-01-09)
-------------------
+==================
 
 - Accomodate new methods added to ``zope.annotation.interfaces.IAnnotations``
   in upcoming zope.annotation 4.4.0 release.
 
 
 4.0.0 (2014-12-24)
-------------------
+==================
 
 - Add support for PyPy.
 
@@ -34,13 +35,13 @@ Changes
 
 
 4.0.0a2 (2013-02-25)
---------------------
+====================
 
 - Correct Trove classifiers.
 
 
 4.0.0a1 (2013-02-24)
---------------------
+====================
 
 - Add support for Python 3.3.
 
@@ -50,14 +51,14 @@ Changes
 - Drop support for Python 2.4 and 2.5.
 
 3.6.1 (2010-05-05)
-------------------
+==================
 
 - Fix a test failure in nested local site manager setup.
 
 - Remove dependency on zope.container.
 
 3.6.0 (2009-03-09)
-------------------
+==================
 
 Initial release. This package was splitted off zope.app.principalannotation
 to remove its dependencies on "zope 3 application server" components.

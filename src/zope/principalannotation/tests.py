@@ -34,7 +34,7 @@ def tearDown(test):
 def test_suite():
     return unittest.TestSuite((
         doctest.DocFileSuite(
-            'README.txt',
+            'README.rst',
             setUp=setUp, tearDown=tearDown,
             optionflags=doctest.ELLIPSIS)
         ))
