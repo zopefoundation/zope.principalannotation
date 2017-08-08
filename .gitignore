@@ -8,7 +8,7 @@ benchmark/*.egg-info
 bin/
 develop-eggs/
 eggs/
-docs/
+docs/_build/
 parts/
 .coverage
 htmlcov/
