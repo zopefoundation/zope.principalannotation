@@ -15,18 +15,16 @@
 """
 import doctest
 import unittest
-from zope.component import provideAdapter
-from zope.interface import Interface
-from zope.security.interfaces import IPrincipal
-from zope.site.testing import siteSetUp, siteTearDown
 
-from zope.principalannotation.utility import annotations
+from zope.site.testing import siteSetUp, siteTearDown
+from zope.configuration import xmlconfig
+
+import zope.principalannotation
 
 def setUp(test):
     site = siteSetUp(site=True)
     test.globs['root'] = site
-    provideAdapter(annotations)
-    provideAdapter(annotations, (IPrincipal, Interface))
+    xmlconfig.file('configure.zcml', zope.principalannotation)
 
 def tearDown(test):
     siteTearDown()
