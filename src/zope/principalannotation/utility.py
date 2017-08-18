@@ -30,9 +30,9 @@ from zope.principalannotation.interfaces import IPrincipalAnnotationUtility
 
 @interface.implementer(IPrincipalAnnotationUtility, IContained)
 class PrincipalAnnotationUtility(Persistent):
-    """Stores `IAnnotations` for `IPrinicipals`.
-
-    The utility ID is 'PrincipalAnnotation'.
+    """
+    Stores :class:`zope.annotation.interfaces.IAnnotations` for
+    :class:`zope.security.interfaces.IPrinicipals`.
     """
 
     __parent__ = None
@@ -42,16 +42,14 @@ class PrincipalAnnotationUtility(Persistent):
         self.annotations = OOBTree()
 
     def getAnnotations(self, principal):
-        """Return object implementing IAnnotations for the given principal.
-
-        If there is no `IAnnotations` it will be created and then returned.
+        """
+        See :meth:`.IPrincipalAnnotationUtility.getAnnotations`.
         """
         return self.getAnnotationsById(principal.id)
 
     def getAnnotationsById(self, principalId):
-        """Return object implementing `IAnnotations` for the given principal.
-
-        If there is no `IAnnotations` it will be created and then returned.
+        """
+        See :meth:`.IPrincipalAnnotationUtility.getAnnotationsById`.
         """
         annotations = self.annotations.get(principalId)
         if annotations is None:
@@ -61,13 +59,21 @@ class PrincipalAnnotationUtility(Persistent):
         return annotations
 
     def hasAnnotations(self, principal):
-        """Return boolean indicating if given principal has `IAnnotations`."""
+        """
+        See :meth:`.IPrincipalAnnotationUtility.hasAnnotations`.
+        """
         return principal.id in self.annotations
 
 
 @interface.implementer(IAnnotations)
 class Annotations(Persistent, Location):
-    """Stores annotations."""
+    """
+    Stores annotations for a single principal in a :class:`~.PersistentDict`.
+
+    Implements the dict-like API of :class:`zope.annotation.interfaces.IAnnotations`.
+
+    Cooperates with the site hierarchy to find annotations in parent sites.
+    """
 
     def __init__(self, principalId, store=None):
         self.principalId = principalId

@@ -19,22 +19,22 @@ from zope.interface import Interface
 
 
 class IPrincipalAnnotationUtility(Interface):
-    """Stores `IAnnotations` for `IPrinicipals`."""
+    """Stores :class:`~.IAnnotations` for :class:`~.IPrinicipals`."""
 
     def getAnnotations(principal):
-        """Return object implementing `IAnnotations` for the given
-        `IPrinicipal`.
+        """Return object implementing :class:`~.IAnnotations` for the given
+        :class`~.IPrinicipal`.
 
-        If there is no `IAnnotations` it will be created and then returned.
+        If there is no :class:`~.IAnnotations` it will be created and then returned.
         """
 
     def getAnnotationsById(principalId):
-        """Return object implementing `IAnnotations` for the given
-        `prinicipalId`.
+        """Return object implementing :class:`~.IAnnotations` for the given
+        *prinicipalId*.
 
-        If there is no `IAnnotations` it will be created and then returned.
+        If there is no :class:`~.IAnnotations` it will be created and then returned.
         """
 
     def hasAnnotations(principal):
-        """Return boolean indicating if given `IPrincipal` has
-        `IAnnotations`."""
+        """Return boolean indicating if given :class:`~.IPrincipal` has
+        :class:`~.IAnnotations`."""

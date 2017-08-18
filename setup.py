@@ -36,8 +36,6 @@ setup(
     long_description=(
         read('README.rst')
         + '\n\n' +
-        read('src', 'zope', 'principalannotation', 'README.rst')
-        + '\n\n' +
         read('CHANGES.rst')
     ),
     keywords="zope security principal annotation",
@@ -68,7 +66,9 @@ setup(
     extras_require={
         'test': TESTS_REQUIRE,
         'docs': [
-            'z3c.recipe.sphinxdoc',
+            'Sphinx',
+            'repoze.sphinx.autointerface',
+            'sphinx_rtd_theme',
         ],
     },
     install_requires=[
