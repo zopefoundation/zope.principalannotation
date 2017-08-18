@@ -1,5 +1,6 @@
-Principal Annotations
-=====================
+=======================
+ Principal Annotations
+=======================
 
 This package implements annotations for zope.security principals.
 To make it clear, the `principal` here is the object that provides
@@ -17,7 +18,7 @@ to IAnnotations.
 
 
 PrincipalAnnotationUtility
---------------------------
+==========================
 
 The core of this package is the ``PrincipalAnnotationUtility`` class
 that stores annotations for principals and allows to get them easily.
@@ -108,7 +109,7 @@ But we can't delete the key that is (no more) existant::
 
 
 Multiple annotation utilities
------------------------------
+=============================
 
 Imagine that your application has a root ``site`` object with its
 component registry (a.k.a. site manager) and that object has a sub-site
@@ -142,15 +143,20 @@ Now, let's create a key in the IAnnotations, provided by root utility::
 
   >>> annots = util.getAnnotations(nadako)
   >>> annots['root.number'] = 42
+  >>> sorted(annots.items())
+  [('root.number', 42)]
 
 The subsite utility should get the annotation successfully::
 
   >>> annots2 = util2.getAnnotations(nadako)
   >>> bool(annots2)
   True
-
   >>> annots2['root.number']
   42
+  >>> del annots['root.number']
+  >>> bool(annots2)
+  False
+  >>> annots['root.number'] = 42
 
 If we have the key both in higher-level annotations and lower-level ones,
 the lower-level will have priority, but higher-level won't be deleted or
@@ -163,6 +169,10 @@ overriden::
   1
   >>> annots2['another.number']
   42
+  >>> sorted(iter(annots))
+  ['another.number', 'root.number']
+  >>> sorted(iter(annots2))
+  ['another.number']
 
 If we'll delete the key from lower-level, it will not be deleted from a
 higher level utility::
@@ -173,10 +183,26 @@ higher level utility::
   1
   >>> annots2['another.number']
   1
+  >>> sorted(iter(annots))
+  ['another.number', 'root.number']
+
+This is somewhat confusing given the way that ``in`` and boolean tests
+work::
+
+  >>> 'another.number' in annots
+  True
+  >>> 'another.number' in annots2
+  False
+  >>> annots2['another.number']
+  1
+  >>> list(iter(annots2))
+  []
+  >>> bool(annots2)
+  True
 
 
 IPrincipal -> IAnnotations adapter
-----------------------------------
+==================================
 
 Of course, the most nice feature is that we can simply adapt our
 principal object to IAnnotations and get those annotations using
@@ -195,7 +221,7 @@ By default, the IAnnotation adapter uses the current site's utility::
 
   >>> from zope.site.hooks import setSite
   >>> setSite(subsite)
-  
+
   >>> IAnnotations(nadako) is util2.getAnnotations(nadako)
   True
 
@@ -203,7 +229,7 @@ Howerver, we can use a binary multi-adapter to IAnnotations to specify
 some context object from which to get the annotations utility::
 
   >>> from zope.component import getMultiAdapter
-  
+
   >>> annots = getMultiAdapter((nadako, root), IAnnotations)
   >>> annots is util.getAnnotations(nadako)
   True

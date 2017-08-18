@@ -22,7 +22,7 @@ from zope.annotation.interfaces import IAnnotations
 from zope.location import Location
 from zope.location.interfaces import IContained
 from zope.security.interfaces import IPrincipal
-from zope.site.next import queryNextUtility
+from zope.component import queryNextUtility
 
 from zope.principalannotation.interfaces import IPrincipalAnnotationUtility
 
@@ -84,7 +84,7 @@ class Annotations(Persistent, Location):
             next = queryNextUtility(self, IPrincipalAnnotationUtility)
             if next is not None:
                 annotations = next.getAnnotationsById(self.principalId)
-                return bool(next)
+                return bool(annotations)
         return nz
 
     __nonzero__ = __bool__
