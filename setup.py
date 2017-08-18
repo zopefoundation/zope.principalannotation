@@ -36,8 +36,6 @@ setup(
     long_description=(
         read('README.rst')
         + '\n\n' +
-        read('src', 'zope', 'principalannotation', 'README.rst')
-        + '\n\n' +
         read('CHANGES.rst')
     ),
     keywords="zope security principal annotation",

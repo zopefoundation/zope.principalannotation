@@ -30,9 +30,9 @@ from zope.principalannotation.interfaces import IPrincipalAnnotationUtility
 
 @interface.implementer(IPrincipalAnnotationUtility, IContained)
 class PrincipalAnnotationUtility(Persistent):
-    """Stores :class:`~.IAnnotations` for :class:`~.IPrinicipals`.
-
-    The utility ID is 'PrincipalAnnotation'.
+    """
+    Stores :class:`zope.annotation.interfaces.IAnnotations` for
+    :class:`zope.security.interfaces.IPrinicipals`.
     """
 
     __parent__ = None
@@ -69,6 +69,8 @@ class PrincipalAnnotationUtility(Persistent):
 class Annotations(Persistent, Location):
     """
     Stores annotations for a single principal in a :class:`~.PersistentDict`.
+
+    Implements the dict-like API of :class:`zope.annotation.interfaces.IAnnotations`.
 
     Cooperates with the site hierarchy to find annotations in parent sites.
     """

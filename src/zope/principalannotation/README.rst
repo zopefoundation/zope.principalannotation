@@ -2,10 +2,10 @@
  Principal Annotations
 =======================
 
-This package implements annotations for zope.security principals.
-To make it clear, the `principal` here is the object that provides
-``zope.security.interfaces.IPrincipal`` interface and `annotations` is
-the object providing ``zope.annotation.interfaces.IAnnotations``.
+This package implements annotations for :mod:`zope.security` principals.
+To make it clear, the *principal* here is the object that provides
+:class:`zope.security.interfaces.IPrincipal` interface and *annotations* is
+the object providing :class:`zope.annotation.interfaces.IAnnotations`.
 
 The problem is that principals is dynamic, non-persistent objects created
 on the fly for every security participation (request or something), so
@@ -20,10 +20,10 @@ to IAnnotations.
 PrincipalAnnotationUtility
 ==========================
 
-The core of this package is the ``PrincipalAnnotationUtility`` class
+The core of this package is the :class:`~.PrincipalAnnotationUtility` class
 that stores annotations for principals and allows to get them easily.
 
-It provides the IPrincipalAnnotationUtility interface::
+It provides the :class:`~zope.principalannotation.interfaces.IPrincipalAnnotationUtility` interface::
 
   >>> from zope.principalannotation.interfaces import IPrincipalAnnotationUtility
   >>> from zope.principalannotation.utility import PrincipalAnnotationUtility
@@ -82,7 +82,7 @@ Let's check the ``IAnnotation`` contract::
   >>> annots.get('not.here', 42)
   42
 
-Note, that the ``IAnnotations`` object gets stored in the utility only
+Note that the ``IAnnotations`` object gets stored in the utility only
 when we set a key for it. This is a simple optimization that allows
 us not to store any data when all we do is simply checking for presense
 of annotation. The ``hasAnnotations`` method will return ``True`` after
