@@ -10,7 +10,7 @@
         :target: https://pypi.org/project/zope.principalannotation/
         :alt: Supported Python versions
 
-.. image:: https://travis-ci.org/zopefoundation/zope.principalannotation.png?branch=master
+.. image:: https://travis-ci.org/zopefoundation/zope.principalannotation.svg?branch=master
         :target: https://travis-ci.org/zopefoundation/zope.principalannotation
 
 .. image:: https://coveralls.io/repos/github/zopefoundation/zope.principalannotation/badge.svg?branch=master
