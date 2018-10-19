@@ -50,12 +50,12 @@ currently doesn't have any::
 We can get ``IAnnotations`` object using principal object itself::
 
   >>> util.getAnnotations(nadako)
-  <zope.principalannotation.utility.Annotations object at 0x...>
+  <...Annotations object at 0x...>
 
 Or using principal id::
 
   >>> util.getAnnotationsById(nadako.id)
-  <zope.principalannotation.utility.Annotations object at 0x...>
+  <...Annotations object at 0x...>
 
 Let's get the ``IAnnotations`` object for our principal and play with it::
 
@@ -210,7 +210,7 @@ standard way documented in ``zope.annotation`` package.
 
   >>> annots = IAnnotations(nadako)
   >>> annots
-  <zope.principalannotation.utility.Annotations object at 0x...>
+  <...Annotations object at 0x...>
   >>> annots['root.number']
   42
 
@@ -219,7 +219,7 @@ By default, the IAnnotation adapter uses the current site's utility::
   >>> IAnnotations(nadako) is util.getAnnotations(nadako)
   True
 
-  >>> from zope.site.hooks import setSite
+  >>> from zope.component.hooks import setSite
   >>> setSite(subsite)
 
   >>> IAnnotations(nadako) is util2.getAnnotations(nadako)
