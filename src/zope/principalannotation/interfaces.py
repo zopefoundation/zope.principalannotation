@@ -25,14 +25,16 @@ class IPrincipalAnnotationUtility(Interface):
         """Return object implementing :class:`~.IAnnotations` for the given
         :class`~.IPrinicipal`.
 
-        If there is no :class:`~.IAnnotations` it will be created and then returned.
+        If there is no :class:`~.IAnnotations` it will be created and then
+        returned.
         """
 
     def getAnnotationsById(principalId):
         """Return object implementing :class:`~.IAnnotations` for the given
         *prinicipalId*.
 
-        If there is no :class:`~.IAnnotations` it will be created and then returned.
+        If there is no :class:`~.IAnnotations` it will be created and then
+        returned.
         """
 
     def hasAnnotations(principal):
