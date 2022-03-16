@@ -21,13 +21,16 @@ from zope.configuration import xmlconfig
 
 import zope.principalannotation
 
+
 def setUp(test):
     site = siteSetUp(site=True)
     test.globs['root'] = site
     xmlconfig.file('configure.zcml', zope.principalannotation)
 
+
 def tearDown(test):
     siteTearDown()
+
 
 def test_suite():
     return unittest.TestSuite((
@@ -35,4 +38,4 @@ def test_suite():
             'README.rst',
             setUp=setUp, tearDown=tearDown,
             optionflags=doctest.ELLIPSIS)
-        ))
+    ))

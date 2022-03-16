@@ -28,6 +28,7 @@ from zope.principalannotation.interfaces import IPrincipalAnnotationUtility
 
 # TODO: register utility as adapter for IAnnotations on utility activation.
 
+
 @interface.implementer(IPrincipalAnnotationUtility, IContained)
 class PrincipalAnnotationUtility(Persistent):
     """
@@ -70,14 +71,15 @@ class Annotations(Persistent, Location):
     """
     Stores annotations for a single principal in a :class:`~.PersistentDict`.
 
-    Implements the dict-like API of :class:`zope.annotation.interfaces.IAnnotations`.
+    Implements the dict-like API of
+    :class:`zope.annotation.interfaces.IAnnotations`.
 
     Cooperates with the site hierarchy to find annotations in parent sites.
     """
 
     def __init__(self, principalId, store=None):
         self.principalId = principalId
-        self.data = PersistentDict() # We don't really expect that many
+        self.data = PersistentDict()  # We don't really expect that many
 
         # _v_store is used to remember a mapping object that we should
         # be saved in if we ever change
@@ -137,5 +139,7 @@ class Annotations(Persistent, Location):
 @component.adapter(IPrincipal)
 @interface.implementer(IAnnotations)
 def annotations(principal, context=None):
-    utility = component.getUtility(IPrincipalAnnotationUtility, context=context)
+    utility = component.getUtility(
+        IPrincipalAnnotationUtility,
+        context=context)
     return utility.getAnnotations(principal)
