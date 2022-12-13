@@ -16,10 +16,10 @@
 import doctest
 import unittest
 
-from zope.site.testing import siteSetUp, siteTearDown
-from zope.configuration import xmlconfig
-
 import zope.principalannotation
+from zope.configuration import xmlconfig
+from zope.site.testing import siteSetUp
+from zope.site.testing import siteTearDown
 
 
 def setUp(test):
