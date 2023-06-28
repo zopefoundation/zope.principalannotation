@@ -35,7 +35,7 @@ setup(
     name='zope.principalannotation',
     version='5.0.dev0',
     author='Zope Foundation and Contributors',
-    author_email='zope-dev@zope.org',
+    author_email='zope-dev@zope.dev',
     description='Annotations for Zope Principals',
     long_description=(
         read('README.rst')
@@ -49,11 +49,7 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Zope Public License',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
@@ -71,6 +67,7 @@ setup(
     packages=find_packages('src'),
     package_dir={'': 'src'},
     namespace_packages=['zope'],
+    python_requires='>=3.7',
     extras_require={
         'test': TESTS_REQUIRE,
         'docs': [
@@ -89,8 +86,6 @@ setup(
         'zope.security',
         'zope.site',
     ],
-    tests_require=TESTS_REQUIRE,
-    test_suite='zope.principalannotation.tests.test_suite',
     include_package_data=True,
     zip_safe=False,
 )
