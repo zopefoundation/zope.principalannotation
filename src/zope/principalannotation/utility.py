@@ -17,15 +17,15 @@ __docformat__ = 'restructuredtext'
 from BTrees.OOBTree import OOBTree
 from persistent import Persistent
 from persistent.dict import PersistentDict
-
-from zope import component
-from zope import interface
 from zope.annotation.interfaces import IAnnotations
 from zope.component import queryNextUtility
 from zope.location import Location
 from zope.location.interfaces import IContained
-from zope.principalannotation.interfaces import IPrincipalAnnotationUtility
 from zope.security.interfaces import IPrincipal
+
+from zope import component
+from zope import interface
+from zope.principalannotation.interfaces import IPrincipalAnnotationUtility
 
 
 # TODO: register utility as adapter for IAnnotations on utility activation.

@@ -16,10 +16,11 @@
 import doctest
 import unittest
 
-import zope.principalannotation
 from zope.configuration import xmlconfig
 from zope.site.testing import siteSetUp
 from zope.site.testing import siteTearDown
+
+import zope.principalannotation
 
 
 def setUp(test):
@@ -33,9 +34,9 @@ def tearDown(test):
 
 
 def test_suite():
-    return unittest.TestSuite((
+    return unittest.TestSuite(
         doctest.DocFileSuite(
             'README.rst',
             setUp=setUp, tearDown=tearDown,
             optionflags=doctest.ELLIPSIS)
-    ))
+    )
