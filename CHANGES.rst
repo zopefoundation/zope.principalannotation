@@ -5,7 +5,7 @@
 5.1 (unreleased)
 ================
 
-- Nothing changed yet.
+- Update to ``persistent`` 6.0 API usage
 
 
 5.0 (2023-06-29)

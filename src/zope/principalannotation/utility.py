@@ -16,7 +16,7 @@
 __docformat__ = 'restructuredtext'
 from BTrees.OOBTree import OOBTree
 from persistent import Persistent
-from persistent.dict import PersistentDict
+from persistent.mapping import PersistentMapping
 from zope.annotation.interfaces import IAnnotations
 from zope.component import queryNextUtility
 from zope.location import Location
@@ -81,7 +81,7 @@ class Annotations(Persistent, Location):
 
     def __init__(self, principalId, store=None):
         self.principalId = principalId
-        self.data = PersistentDict()  # We don't really expect that many
+        self.data = PersistentMapping()  # We don't really expect that many
 
         # _v_store is used to remember a mapping object that we should
         # be saved in if we ever change
