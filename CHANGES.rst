@@ -5,6 +5,8 @@
 5.1 (unreleased)
 ================
 
+- Drop support for Python 3.7.
+
 - Update to ``persistent`` 6.0 API usage
 
 
