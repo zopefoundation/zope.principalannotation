@@ -33,7 +33,7 @@ TESTS_REQUIRE = [
 
 setup(
     name='zope.principalannotation',
-    version='5.1',
+    version='5.2.dev0',
     author='Zope Foundation and Contributors',
     author_email='zope-dev@zope.dev',
     description='Annotations for Zope Principals',
