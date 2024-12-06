@@ -9,7 +9,7 @@
 
 - Drop support for Python 3.7.
 
-- Update to ``persistent`` 6.0 API usage
+- Update to ``persistent`` 6.0 API usage.
 
 
 5.0 (2023-06-29)
